@@ -1,9 +1,9 @@
 ---
 layout: ../layouts/Layout.astro
-title: Research Project Page Template
+title: 'SPAX: Fully Sparse Framework with Hierarchical Spatio-temporal Fusion for Moving Object Tracking in Satellite Videos'
 description: Simple project page template for your research paper, built with Astro and Tailwind CSS
 favicon: favicon.svg
-thumbnail: screenshot-light.png
+thumbnail: public/log_.png
 ---
 
 import Header from "../components/Header.astro";
@@ -24,6 +24,9 @@ import Splat from "../components/Splat.tsx"
 import dogsDiffc from "../assets/dogs-diffc.png"
 import dogsTrue from "../assets/dogs-true.png"
 
+import main_fig from "../assets/main_fig.png"
+import intro_fig from "../assets/intro_fig.png"
+
 
 import CodeBlock from "../components/CodeBlock.astro";
 import Table from "../components/Table.astro";
@@ -33,35 +36,35 @@ export const components = {pre: CodeBlock, table: Table}
   title={frontmatter.title}
   authors={[
     {
-      name: "Roman Hauksson",
-      url: "https://roman.technology",
-      institution: "Independent",
-      notes: ["*", "†"],
+      name: "Zhehao Xiao",
+      notes: ["1"],
     },
     {
-      name: "Author Two",
-      institution: "Institution Two",
-      notes: ["*", "†"],
+      name: "Fang Xu",
+      notes: ["1"],
     },
     {
-      name: "Author Three",
-      institution: "Institution Three",
-      notes: ["†"],
+      name: "Chuandong Liu",
+      notes: ["1"],
     },
     {
-      name: "Author Four",
-      institution: "Institution Four",
+      name: "Wen Yang",
+      notes: ["2"],
+    },
+    {
+      name: "Guisong Xia",
+      notes: ["1"],
     },
   ]}
-  conference="Conference Name"
+  
   notes={[
     {
-      symbol: "*",
-      text: "author note one",
+      symbol: "1",
+      text: "School of Computer Science, Wuhan University",
     },
     {
-      symbol: "†",
-      text: "author note two",
+      symbol: "2",
+      text: "School of Electronic Information, Wuhan University",
     },
   ]}
   links={[
@@ -72,7 +75,7 @@ export const components = {pre: CodeBlock, table: Table}
     },
     {
       name: "Code",
-      url: "https://github.com/RomanHauksson/academic-project-astro-template",
+      url: "",
       icon: "ri:github-line",
     },
     {
@@ -80,92 +83,27 @@ export const components = {pre: CodeBlock, table: Table}
       url: "",
       icon: "academicons:arxiv",
     },
-    {
-      name: "Bluesky",
-      url: "",
-      icon: "ri:bluesky-line"
-    }
   ]}
   />
 
-<Video source={outside} />
+<Figure>
+  <Image slot="figure" source={intro_fig} altText="Comparison between our proposed SPAX (bottom) and existing paradigm (top)." />
+  <span slot="caption">Comparison between our proposed SPAX (bottom) and existing paradigm (top).</span>
+</Figure>
 
 <HighlightedSection>
 
 ## Abstract
 
-This is a live demo for a template you can use to create a simple project page for your research paper. See the code for the template and instructions on how to use it yourself [here](https://github.com/RomanHauksson/academic-project-astro-template). It's made with the [Astro web framework](https://astro.build/) and styled with [Tailwind CSS](https://tailwindcss.com/). You write the content in [MDX](https://mdxjs.com/), which enables markdown formatting like **bold**, _italics_, and ~strikethrough~, as well as custom components like <SmallCaps>small caps.</SmallCaps>
+Moving object tracking is a fundamental task in video satellite technologies. Existing methods typically introduce unnecessary computational overhead of redundant regions in spatial dimension and struggle to tackle the temporal challenges posed by the coupled motion of the satellite platform and ground objects. To address these issues, we propose a fully sparse framework with hierarchical spatio-temporal fusion (SPAX). Specifically, SPAX utilizes an object-centric fully-sparse paradigm to reduce computational redundancy by focusing only on foreground regions. Furthermore, we adopt the hierarchical spatio-temporal fusion (HSF) to address the complexity of dual-motion coupling through intra-frame multi-scale feature fusion, inter-frame symmetric feature interaction, and inter-frame asymmetric feature interaction, thereby enabling comprehensive temporal information utilization. Additionally, we propose a plug-and-play Gaussian-based trajectory association (GTA) strategy to mitigate the negative impact of observational drifts and accumulated errors. 
+Experiments show that SPAX outperforms previous methods on two popular benchmarks, achieving notable improvements of **5.1%** and **8.7%** on MOTA. While achieving the state-of-the-art (SOTA) performance, SPAX reduces GFLOPs by **88.6%** and delivers a **2.7x** speedup on SatVideoDT dataset, along with up to a **3.1x** acceleration on SatMTB-MOT dataset compared to our baseline.
 
 </HighlightedSection>
 
-## Figures
+## Method 
 
-Use the figure component to display images, videos, equations, or any other element, with an optional caption.
 
 <Figure>
-  <Image slot="figure" source={transformer} altText="Diagram of the transformer deep learning architecture." />
-  <span slot="caption">Diagram of the transformer deep learning architecture.</span>
+  <Image slot="figure" source={main_fig} altText="Overall structure of SPAX." />
+  <span slot="caption">Overall structure of SPAX.</span>
 </Figure>
-
-## Image comparison slider
-
-An interactive, accessible slider component with keyboard navigation.
-<Figure>
-  <ImageComparison slot="figure" client:load imageUrlOne={dogsDiffc.src} imageUrlTwo={dogsTrue.src} altTextOne="Photo of two dogs running side-by-side in shallow water, lossily compressed using the DiffC algorithm" altTextTwo="Original photo of two dogs running side-by-side in shallow water" />
-  <span slot="caption">A photo of two dogs running side-by-side in shallow water, lossily compressed using the <a href="https://jeremyiv.github.io/diffc-project-page/">DiffC algorithm</a>.</span>
-</Figure>
-
-## Two columns
-
-Use the two columns component to display two columns of content. In this example, the first column contains a figure with a YouTube video and the second column contains a figure with a custom [React](https://react.dev/) component. By default, they display side by side, but if the screen is narrow enough (for example, on mobile), they're arranged vertically.
-
-<TwoColumns>
-  <Figure slot="left">
-    <YouTubeVideo slot="figure" videoId="wjZofJX0v4M" />
-    <span slot="caption">Take a look at this YouTube video.</span>
-  </Figure>
-  <Figure slot="right">
-    <Splat slot="figure" client:idle />
-    <span slot="caption">Now look at this <a href="https://en.wikipedia.org/wiki/Gaussian_splatting">Gaussian splat</a>, rendered with a React component.</span>
-  </Figure>
-</TwoColumns>
-
-## Heading levels
-
-Use headings to divide your content into sections.
-
-### Heading 3
-
-Go down a level to heading 3...
-
-#### Heading 4
-
-...and down again to heading 4.
-
-## LaTeX
-
-You can also add LaTeX formulas, rendered during the build process using [KaTeX](https://katex.org/) so they're quick to load for visitors of your project page. You can write them inline, like this: <LaTeX inline formula="a^2 + b^2 = c^2" />. Or, you can write them as a block:
-
-<LaTeX formula="\int_a^b f(x) dx" />
-
-## Tables
-
-You can add simple tables using [GitHub Flavored Markdown syntax](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables):
-
-| Model | Accuracy | F1 score | Training time (hours) |
-| :--- | :---: | :---: | :---: |
-| BERT-base | 0.89 | 0.87 | 4.5 |
-| RoBERTa-large | 0.92 | 0.91 | 7.2 |
-| DistilBERT | 0.86 | 0.84 | 2.1 |
-| XLNet | 0.90 | 0.89 | 6.8 |
-
-## BibTeX citation
-
-```bibtex
-@misc{roman2024academic,
-  author = "{Roman Hauksson}",
-  title = "Academic Project Page Template",
-  year = "2024",
-  howpublished = "\url{https://research-template.roman.technology}",
-}
-```

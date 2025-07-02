@@ -40,6 +40,9 @@ import sparse_hm_ship from "../assets/sparse_hm_use_ship.png"
 import res_1 from "../assets/res_1.jpg"
 import res_2 from "../assets/res_2.jpg"
 
+import car from "../assets/car_new.mp4";
+import airplane from "../assets/airplane_new.mp4";
+
 import CodeBlock from "../components/CodeBlock.astro";
 import Table from "../components/Table.astro";
 export const components = {pre: CodeBlock, table: Table}
@@ -102,6 +105,10 @@ export const components = {pre: CodeBlock, table: Table}
   <Image slot="figure" source={intro_fig} altText="Comparison between our proposed SPAX (bottom) and existing paradigm (top)." />
   <span slot="caption">Comparison between our proposed SPAX (bottom) and existing paradigm (top).</span>
 </Figure>
+
+&nbsp;
+<Video source={car}/>
+<Video source={airplane}/>
 
 &nbsp;
 <HighlightedSection>

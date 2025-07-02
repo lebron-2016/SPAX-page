@@ -17,5 +17,7 @@ export default defineConfig({
         dark: 'github-dark',
       },
     }
-  }
+  },
+  output: 'static',
+  base: '/SPAX-page/',
 });

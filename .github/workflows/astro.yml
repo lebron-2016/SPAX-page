@@ -85,6 +85,13 @@ jobs:
     runs-on: ubuntu-latest
     name: Deploy
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - uses: actions/checkout@v3
+
+      - uses: withastro/action@v1
+        with:
+          deploy-dir: dist
+          site: https://lebron-2016.github.io/SPAX-page/
+    # steps:
+    #   - name: Deploy to GitHub Pages
+    #     id: deployment
+    #     uses: actions/deploy-pages@v4

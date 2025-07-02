@@ -3,6 +3,7 @@ import type { Author, Note, Link } from "../types/types";
 import Links from "./Links.astro";
 import Authors from "./Authors.astro";
 import Notes from "./Notes.astro";
+import logo from "../assets/log.png";
 
 interface Props {
   title: string;
@@ -17,7 +18,7 @@ const { title, authors, conference, notes, links } = Astro.props as Props;
 
 <header class="flex flex-col gap-10 items-center mb-6">
   <h1>
-    <img src="/log_.png" alt="Icon" style="width: 1.5em; height: 1.5em; display: inline; vertical-align: middle; margin-right: 0.5em;" />
+    <img src="log.png" alt="Icon" style="width: 1.5em; height: 1.5em; display: inline; vertical-align: middle; margin-right: 0.5em;" />
     {title}
   </h1>
   <div class="flex flex-col gap-6 items-center">

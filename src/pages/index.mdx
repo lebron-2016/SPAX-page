@@ -27,6 +27,18 @@ import dogsTrue from "../assets/dogs-true.png"
 import main_fig from "../assets/main_fig.png"
 import intro_fig from "../assets/intro_fig.png"
 
+import final_hm_car from "../assets/final_hm_car.png"
+import sparse_final_hm_car from "../assets/sparse_final_hm_use_car.png"
+import hm_car from "../assets/hm_car.png"
+import sparse_hm_car from "../assets/sparse_hm_use_car.png"
+
+import c0_ship from "../assets/c0_ship.png"
+import sparse_c0_ship from "../assets/sparse_c0_use_ship.png"
+import hm_ship from "../assets/hm_ship.png"
+import sparse_hm_ship from "../assets/sparse_hm_use_ship.png"
+
+import res_1 from "../assets/res_1.jpg"
+import res_2 from "../assets/res_2.jpg"
 
 import CodeBlock from "../components/CodeBlock.astro";
 import Table from "../components/Table.astro";
@@ -106,4 +118,42 @@ Experiments show that SPAX outperforms previous methods on two popular benchmark
 <Figure>
   <Image slot="figure" source={main_fig} altText="Overall structure of SPAX." />
   <span slot="caption">Overall structure of SPAX.</span>
+</Figure>
+
+
+
+## Feature comparison slider
+
+Comparison of computational feature maps between the dense and sparse mode.
+
+**VISO-car-001:**
+<Figure>
+  <ImageComparison slot="figure" client:load imageUrlOne={final_hm_car.src} imageUrlTwo={sparse_final_hm_car.src} />
+  <span slot="caption"></span>
+
+  <ImageComparison slot="figure" client:load imageUrlOne={hm_car.src} imageUrlTwo={sparse_hm_car.src} />
+  <span slot="caption"></span>
+</Figure>
+
+**SatMTB-ship-029:**
+<Figure>
+  <ImageComparison slot="figure" client:load imageUrlOne={c0_ship.src} imageUrlTwo={sparse_c0_ship.src} />
+  <span slot="caption"></span>
+
+  <ImageComparison slot="figure" client:load imageUrlOne={hm_ship.src} imageUrlTwo={sparse_hm_ship.src} />
+  <span slot="caption"></span>
+</Figure>
+
+## Experimental results
+
+
+<Figure>
+  <Image slot="figure" source={res_1} altText=""/>
+  <span slot="caption"></span>
+</Figure>
+
+
+<Figure>
+  <Image slot="figure" source={res_2} altText=""/>
+  <span slot="caption"></span>
 </Figure>
